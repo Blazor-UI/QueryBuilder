@@ -5,9 +5,9 @@ VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QueryBuilder", "QueryBuilder\QueryBuilder.csproj", "{5CB3C804-5DAA-46E5-A699-A7528760B6D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryBuilder.Viewer", "QueryBuilder.Viewer\QueryBuilder.Viewer\QueryBuilder.Viewer.csproj", "{0DA3B891-7309-4EC6-A124-75FAC9E9DECD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QueryBuilder.Viewer", "QueryBuilder.Viewer\QueryBuilder.Viewer\QueryBuilder.Viewer.csproj", "{0DA3B891-7309-4EC6-A124-75FAC9E9DECD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryBuilder.Viewer.Client", "QueryBuilder.Viewer\QueryBuilder.Viewer.Client\QueryBuilder.Viewer.Client.csproj", "{3AC80E1F-24DF-4264-9C28-67C954EA457B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QueryBuilder.Viewer.Client", "QueryBuilder.Viewer\QueryBuilder.Viewer.Client\QueryBuilder.Viewer.Client.csproj", "{3AC80E1F-24DF-4264-9C28-67C954EA457B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AB453B6C-9177-4D37-941B-90378ADCDD03}"
 	ProjectSection(SolutionItems) = preProject
