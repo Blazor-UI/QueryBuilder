@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\QueryBuilder\QueryBuilder.csproj" />
     <ProjectReference Include="..\QueryBuilder.Viewer.Client\QueryBuilder.Viewer.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.0" />
   </ItemGroup>

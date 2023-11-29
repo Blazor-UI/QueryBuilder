@@ -1,8 +1,11 @@
-﻿namespace QueryBuilder.Base;
+﻿namespace QueryBuilder;
 
 using Microsoft.AspNetCore.Components;
 
-public abstract class QBBaseInput : ComponentBase
+/// <summary>
+///     Base component.
+/// </summary>
+public abstract class QBBaseComponent : ComponentBase
 {
     /// <summary>
     ///     User class name, separated by space
@@ -15,5 +18,5 @@ public abstract class QBBaseInput : ComponentBase
     ///     They will be splatted onto the underlying HTML tag.
     /// </summary>
     [Parameter(CaptureUnmatchedValues = true)]
-    public Dictionary<string, object?> InputAttributes { get; set; } = [];
+    public Dictionary<string, object?> ComponentAttributes { get; set; } = new();
 }

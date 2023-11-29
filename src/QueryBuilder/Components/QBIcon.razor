@@ -1,0 +1,13 @@
+﻿@namespace QueryBuilder
+@inherits QBBaseComponent
+
+@if (!string.IsNullOrWhiteSpace(this.Icon) && this.Icon.Trim().StartsWith("<"))
+{
+	<svg @attributes="this.ComponentAttributes" class="@this.Class" focusable="false" viewBox="@this.ViewBox" aria-hidden="true">
+		@((MarkupString)Icon)
+	</svg>
+}
+else
+{
+    @* <span @attributes="UserAttributes" class="@($"{Classname} {Icon}")" style="@Style" title="@Title" /> *@
+}
