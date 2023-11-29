@@ -38,49 +38,31 @@
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 	</PropertyGroup>
 
-    <Target Name="ToolRestore">
-        <Exec Command="dotnet tool restore" StandardOutputImportance="high" />
-    </Target>
-
-    <Target Name="WebCompiler" DependsOnTargets="ToolRestore">
-        <!--compile and minify scss-->
-        <Exec Command="dotnet webcompiler ./Styles/QueryBuilder.scss -c excubowebcompiler.json" StandardOutputImportance="high" StandardErrorImportance="high" />
-    </Target>
-
-    <Target Name="IncludeGeneratedStaticFiles" DependsOnTargets="WebCompiler" BeforeTargets="BeforeBuild">
-        <Error Condition="!Exists('$(MSBuildProjectDirectory)/wwwroot/QueryBuilder.min.css')" Text="Missing QueryBuilder.min.css in wwwroot" />
-        <ItemGroup>
-            <!--Include without duplication-->
-            <_NewCompiledCssFiles Include="wwwroot\QueryBuilder.min.css" Exclude="@(Content)" />
-            <Content Include="@(_NewCompiledCssFiles)" />
-        </ItemGroup>
-    </Target>
-
-	<ItemGroup>
-        <Content Remove="compilerconfig.json" />
-        <Content Remove="excubowebcompiler.json" />
-	</ItemGroup>
+    <PropertyGroup>
+        <!-- outputstyle option -->
+        <DartSassOutputStyle>compressed</DartSassOutputStyle>
+        <DartSassOutputStyle Condition="'$(Configuration)' == 'Debug'">expanded</DartSassOutputStyle>
+        <!-- level option -->
+        <DartSassOutputLevel>verbose</DartSassOutputLevel>
+        <!-- msbuild output level -->
+        <DartSassMessageLevel>High</DartSassMessageLevel>
+    </PropertyGroup>
 
   <ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="DartSassBuilder" Version="1.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Extensions\" />
-    <Folder Include="Styles\" />
-    <Folder Include="wwwroot\" />
   </ItemGroup>
 
-    <ItemGroup>
-        <!--For automatic compile on save of the scss use
-            cd ./src/MudBlazor
-            dotnet watch webcompiler ./Styles/MudBlazor.scss -c excubowebcompiler.json
-        -->
-        <Watch Include="**/*.scss" />
-    </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\QueryBuilder.css" />
+  </ItemGroup>
 
 </Project>
